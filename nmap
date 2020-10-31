@@ -1,0 +1,40 @@
+network mapper
+nmap.org:     https://nmap.org/docs.html
+man page:     https://linux.die.net/man/1/nmap
+
+Initial usage during CTF:
+
+nmap -T4 -v -A 10.10.10.10
+
+-T4     speed of scan (0-5)
+-v      verbose output
+-A      Aggressive scan, runs initial scripts for OS and version detection
+
+Additional options:
+-sV     service version detection/
+-sC     default script scan 
+-sU     UDP scan
+-p      specify ports, -p- for all ports
+-O      OS detection
+-oA     Output results in 3 different formats
+-Pn     skip the discovery ping 
+-sn     disabled port scan, only discovery scan
+-sN     NULL scan
+-sF     FIN scan
+-sX     christmas tree scan
+
+
+
+NSE - nmap scripting engine
+Built in scripting engine for checking if target is vulnerable or conducting further enumeration
+
+nmap -v --script=default 10.10.10.10
+nmap -v -p80 --script="http-*" 10.10.10.10
+
+--script="http-*"
+--script="ftp-*"
+--script="smb-*"#
+
+
+Update the nse DB
+nmap --script-updatedb
